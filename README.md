@@ -15,6 +15,8 @@ mobile: 0406770664 |
 
 There are many ways you can implement Authentication and Authorization with Jersey. This is the most simplest example I could demo with [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). By no means should you drop this code into production.
 
+In addition I have hooked this up to a tomcat with a plugin created war goals so this can be deployed as a war to a 2.5 servlet speced container.
+
 ### Why
 
 If you are reading this, you may be wondering why I built this project. It is because someone in my Linkedin network asked me how to do this. This was the simplest example I could think of and is a collection of examples I gathered from other resources on the web.
