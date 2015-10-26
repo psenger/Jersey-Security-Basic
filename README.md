@@ -15,7 +15,7 @@ mobile: 0406770664 |
 
 There are many ways you can implement Authentication and Authorization with Jersey. This is the most simplest example I could demo with [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). By no means should you drop this code into production.
 
-In addition I have hooked this up to a tomcat with a plugin created war goals so this can be deployed as a war to a 2.5 servlet speced container.
+Additionaly, I have added tomcat with a plugin to the maven pom and created a war goal so this can be deployed as a war to a 2.5 servlet speced container.
 
 ### Why
 
@@ -23,13 +23,14 @@ If you are reading this, you may be wondering why I built this project. It is be
 
 ### How
 
-First you will need Java 1.8
+First you will need Java 1.8 installed on your computer.
  
 [Install Java 1.8 ](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
  
-Next you will need to install Apache Maven.
+Next you will need to install Apache Maven. You will NOT need tomcat, as I have installed a Tomcat pluggin.
 
 [Installing Apache Maven](https://maven.apache.org/install.html)
+[videos for Apache Maven](https://www.youtube.com/playlist?list=PLTgRMOcmRb3OGBIfqPSZFk0Nn0B4xGZqs)
 
 Then you can run the whole project with Tomcat ( as a plugin ) via the following command line. I have included tomcat 6 in this build so you dont have to download it and install it. This should run with tomcat 8 with some minor tweaks to the web.xml
 
