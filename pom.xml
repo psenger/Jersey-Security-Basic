@@ -68,28 +68,28 @@
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-server</artifactId>
-            <version>2.22.1</version>
+            <version>${jersey.version}</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-common</artifactId>
-            <version>2.22.1</version>
+            <version>${jersey.version}</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet-core</artifactId>
-            <version>2.22.1</version>
+            <version>${jersey.version}</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
-            <version>2.22.1</version>
+            <version>${jersey.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.glassfish.jersey.bundles</groupId>
             <artifactId>jaxrs-ri</artifactId>
-            <version>2.22.1</version>
+            <version>${jersey.version}</version>
         </dependency>
 
     </dependencies>
@@ -99,7 +99,7 @@
             <plugins>
                 <plugin>
                     <groupId>org.apache.tomcat.maven</groupId>
-                    <artifactId>tomcat6-maven-plugin</artifactId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
                     <version>2.2</version>
                     <configuration>
                         <path>${project.build.directory}/${project.build.finalName}.war</path>
@@ -131,7 +131,7 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat6-maven-plugin</artifactId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
                 <configuration>
                     <port>8080</port>
                     <path>/</path>
@@ -144,8 +144,8 @@
                 <version>2.5.1</version>
                 <inherited>true</inherited>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -167,7 +167,7 @@
     </build>
 
     <properties>
-        <jersey.version>2.7</jersey.version>
+        <jersey.version>2.22.1</jersey.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
