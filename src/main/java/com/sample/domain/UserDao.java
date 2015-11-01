@@ -11,7 +11,7 @@ public class UserDao {
 
     public UserDao() {
         users = new HashMap<String, User>();
-        User user = new User("ironman", new String[]{ "user" }, "password");
+        User user = new User("1","ironman","ironman@gmail.com", new String[]{ "user", "admin" }, "password");
         users.put(user.getUsername(), user);
     }
 
@@ -21,5 +21,11 @@ public class UserDao {
 
     public User getUser(String username) {
         return (users.get(username));
+    }
+
+    public User addUser( User user ) {
+        user.setId( UUID.randomUUID().toString() );
+        users.put( user.getId(), user );
+        return user;
     }
 }

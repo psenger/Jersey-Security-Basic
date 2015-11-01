@@ -5,10 +5,7 @@ package com.sample;
 
 import com.sample.domain.BookDao;
 import com.sample.domain.UserDao;
-import com.sample.filters.AuthenticationExceptionMapper;
-import com.sample.filters.SecurityFilter;
 import org.glassfish.grizzly.http.server.HttpServer;
-import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
@@ -19,7 +16,7 @@ public class Main {
     public static final String BASE_URI = "http://localhost:8080/";
 
     public static HttpServer startServer() {
-        final ResourceConfig rc = new BookApplication( new BookDao(), new UserDao() );
+        final ResourceConfig rc = new Application( new BookDao(), new UserDao() );
         return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
     }
 

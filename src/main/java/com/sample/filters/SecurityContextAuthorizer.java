@@ -24,7 +24,7 @@ public class SecurityContextAuthorizer implements SecurityContext {
         this.user = user;
         this.principal = new Principal() {
             public String getName() {
-                return user.username;
+                return user.getUsername();
             }
         };
         this.uriInfo = uriInfo;

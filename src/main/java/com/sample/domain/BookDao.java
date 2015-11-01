@@ -3,12 +3,19 @@
  */
 package com.sample.domain;
 
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.common.util.concurrent.ListeningExecutorService;
+import com.google.common.util.concurrent.MoreExecutors;
+import org.apache.commons.codec.digest.DigestUtils;
+
+import javax.ws.rs.core.EntityTag;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executors;
 
 public class BookDao {
 
     private Map<String, Book> books;
+    private ListeningExecutorService service;
 
     public BookDao() {
 
@@ -31,14 +38,32 @@ public class BookDao {
         books.put(book1.getId(), book1);
         books.put(book2.getId(), book2);
 
+        service  = MoreExecutors.listeningDecorator( Executors.newFixedThreadPool(10) );
     }
 
     public Collection<Book> getBooks() {
         return (books.values());
     }
 
-    public Book getBook(String id) {
-        return (books.get(id));
+    public Book getBook(String id) throws EntityNotFoundException {
+        if ( books.containsKey(id) ) {
+            return books.get(id);
+        }
+        throw new EntityNotFoundException("Book Not Found");
+    }
+
+    public ListenableFuture<Book> getBookAsync(final String id ){
+        ListenableFuture<Book> future = service.submit(
+                () -> getBook(id)
+                /**
+                 new Callable<Book>() {
+                   public Book call(){
+                     return getBook(id);
+                   }
+                 }
+                 */
+        );
+        return future;
     }
 
     public Book addBook( Book book ) {
